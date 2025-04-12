@@ -1,0 +1,16 @@
+Input Data (mvp):
+
+Digital Elevation Model (DEM)
+Format: GeoTIFF (.tif)
+Path: E:\solar_suitability_project\data\dem.tif
+Requirements: projection in metric system (UTM recommended)
+
+Road network
+Format: Shapefile (. shp)
+Path: E:\solar_suitability_project\data\roads.shp
+Requirements: same projection as DEM
+
+Optional: Exclusion mask
+To exclude areas (forests, water bodies etc.)
+Change mask_path parameter in main() function
+

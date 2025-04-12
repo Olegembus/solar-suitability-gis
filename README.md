@@ -8,41 +8,41 @@ The project is fully automated through the Python script `solar_suitability.py`.
 
 ## 📂 Project Structure
 
-E:\solar_suitability_project
+solar_suitability_project/
 │
-├── 📁 data\                          # Input data
-│   ├── 🗂️ dem.tif                   # Digital Elevation Model (reprojected from WGS84 → Web Mercator)
-│   │   └── 📝 EPSG:4326 → EPSG:3857  # Coordinate system transformation
-│   └── 🗂️ roads.shp                 # Road network (EPSG:3857, metric system)
+├── data/ # Input data
+│ ├── dem.tif # Digital Elevation Model (reprojected from WGS84 → Web Mercator)
+│ │ └── EPSG:4326 → EPSG:3857 # Coordinate system transformation
+│ └── roads.shp # Road network (EPSG:3857, metric system)
 │
-├── 📁 results\                       # Analysis results
-│   ├── 🗂️ slope.tif                 # Slopes (degrees)
-│   ├── 🗂️ aspect.tif                # Aspect (0-360°)
-│   ├── 🗂️ solar.tif                 # Raw solar radiation (kWh/m²)
-│   │
-│   ├── 📁 scores\                    # Normalized indicators (1-5)
-│   │   ├── 🗂️ solar_score.tif       # Solar radiation (5 - highest priority)
-│   │   ├── 🗂️ slope_score.tif       # Slope (1 - gentle, 5 - steep)
-│   │   ├── 🗂️ aspect_score.tif      # Aspect (5 - south, 1 - north)
-│   │   └── 🗂️ distance_score.tif    # Distance to roads (5 - closest)
-│   │
-│   ├── 🗂️ suitability.tif           # Final score (Σ weighted indicators)
-│   │   └── ⚖️ 0.4(solar) + 0.3(slope) + 0.2(aspect) + 0.1(distance)
-│   │
-│   └── 📁 output_zones\              # Final zones
-│       ├── 🗂️ best_zones.tif        # Binary mask (≥4.5 points)
-│       └── 🗂️ best_zones.shp        # Vectorized zones (area >2 ha)
+├── results/ # Analysis results
+│ ├── slope.tif # Slopes (degrees)
+│ ├── aspect.tif # Aspect (0-360°)
+│ ├── solar.tif # Raw solar radiation (kWh/m²)
+│ │
+│ ├── scores/ # Normalized indicators (1-5)
+│ │ ├── solar_score.tif # Solar radiation (5 - highest priority)
+│ │ ├── slope_score.tif # Slope (1 - gentle, 5 - steep)
+│ │ ├── aspect_score.tif # Aspect (5 - south, 1 - north)
+│ │ └── distance_score.tif # Distance to roads (5 - closest)
+│ │
+│ ├── suitability.tif # Final score (weighted sum)
+│ │ └── 0.4(solar) + 0.3(slope) + 0.2(aspect) + 0.1(distance)
+│ │
+│ └── output_zones/ # Final zones
+│ ├── best_zones.tif # Binary mask (≥4.5 points)
+│ └── best_zones.shp # Vectorized zones (area >2 ha)
 │
-├── 📁 scripts\
-│   └── 🐍 solar_suitability.py       # Automated pipeline:
-│       ├── 📌 DEM preprocessing
-│       ├── 📌 Solar radiation calculation
-│       └── 📌 GIS analysis by criteria
+├── scripts/
+│ └── solar_suitability.py # Automated pipeline:
+│ ├── DEM preprocessing
+│ ├── Solar radiation calculation
+│ └── GIS analysis by criteria
 │
-└── 📄 README.md                      # Documentation:
-    ├── 🌍 Coordinate systems
-    ├── ⚙️ Analysis parameters
-    └── 📊 Results interpretation
+└── README.md # Documentation:
+├── Coordinate systems
+├── Analysis parameters
+└── Results interpretation
 
 
 ---
